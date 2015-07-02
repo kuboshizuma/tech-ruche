@@ -1,6 +1,7 @@
 class FeedsController < ApplicationController
 
   def index
+    @feeds =Feed.order("updated_at DESC").where('started_at > ?', Time.now.beginning_of_day)
   end
 
   def new

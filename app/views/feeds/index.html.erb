@@ -1,2 +1,11 @@
-<p>test</p>
 <%= link_to "イベントを登録する", new_feed_path %>
+
+<% @feeds.each do |event| %>
+  <article style="padding:20px;border:#999 thin solid;">
+    <p><%= event.title %></p>
+    <p><%= event.link %></p>
+    <p><%= event.place %></p>
+    <p><%= event.address %></p>
+    <p><%= event.started_at %></p>
+  </article>
+<% end %>

@@ -32,6 +32,8 @@ gem 'rails_config'
 
 gem 'mechanize'
 
+gem 'httparty'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

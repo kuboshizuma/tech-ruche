@@ -16,8 +16,22 @@ class FeedsController < ApplicationController
         render 'new'
       end
     when 1 then
-      redirect_to root_path, flash: { alert: "テストです" }
+      link_ele = params[:link].split('/')
+      if link_ele[2].include?("connpass.com") && link_ele[3] == "event"
+        connpass_events = HTTParty.get('http://connpass.com/api/v1/event/?event_id=' + link_ele[4])
+        connpass_event = connpass_events.parsed_response["events"][0]
+        if ConnpassApi.save_connpass_event connpass_event
+          redirect_to root_path, flash: { alert: "新着イベントを登録しました" }
+        else
+        flash[:alert] = "登録に失敗しました"
+        render 'new'
+        end
+      else
+        flash[:alert] = "URLを間違えています"
+        render 'new'
+      end
     else
+      flash[:alert] = "登録に失敗しました"
       render 'new'
     end
   end

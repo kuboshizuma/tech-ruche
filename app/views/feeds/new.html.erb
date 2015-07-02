@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="col-lg-8">
+    <%= form_tag('/feeds') do %>
+      <%= text_field_tag :link, nil, placeholder: "URLを入力して下さい", class: "form-control" %>
+      <%= select_tag :type, options_for_select([['dots', 0], ['connpass', 1]]) %>
+      <%= submit_tag  "登録する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

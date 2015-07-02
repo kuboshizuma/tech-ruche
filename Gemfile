@@ -30,6 +30,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'rails_config'
 
+gem 'mechanize'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

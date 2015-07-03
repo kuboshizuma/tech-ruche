@@ -1,11 +1,16 @@
-<%= link_to "イベントを登録する", new_feed_path %>
-
+<h2>新着イベント一覧</h2>
 <% @feeds.each do |event| %>
-  <article style="padding:20px;border:#999 thin solid;">
-    <p><%= event.title %></p>
-    <p><%= event.link %></p>
-    <p><%= event.place %></p>
-    <p><%= event.address %></p>
-    <p><%= event.started_at %></p>
-  </article>
+  <a href="<%= event.link %>" target="_blank" class="article_link">
+    <article>
+        <%= image_tag(event.image) %>
+      <div class="article_top">
+        <p class="article_start"><%= event.start_day %></p>
+        <h1 class="article_title"><%= event.title %></p>
+      </div>
+      <table>
+        <tr><th>会場：</th><td><%= event.place %></td></tr>
+        <tr><th>住所：</th><td><%= event.address %></td></tr>
+      </table>
+    </article>
+  </a>
 <% end %>

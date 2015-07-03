@@ -2,13 +2,46 @@
 <html>
 <head>
   <title>TechRuche</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- sp-mmenu-->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#my-menu").mmenu({
+          offCanvas: {
+          position  : "right", //left(デフォルト)・right・top・bottom
+          zposition : "back" //back(デフォルト)・front・next
+        }
+      });
+    });
+  </script>
 </head>
-<body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+<body data-no-turbolink>
+  <nav id="my-menu">
+    <ul>
+      <li><%= link_to '新着イベント一覧', root_path %></li>
+      <li><%= link_to 'イベントを登録する', new_feed_path %></li>
+    </ul>
+  </nav>
+  <div id="wrap">
+    <header class="clearfix">
+      <div id="header_inner">
+        <h1 id="logo"><%= link_to 'TechRuche', root_path %></p></h1>
+        <a href="#my-menu" id="my-menu-button"><i class="fa fa-bars"></i></a>
+      </div>
+    </header>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+    <footer>
+      <p>© 2015 kuboshizuma All Rights Reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>

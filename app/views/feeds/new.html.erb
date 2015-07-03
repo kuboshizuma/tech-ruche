@@ -1,8 +1,18 @@
+<h2>イベントを登録する</h2>
 <div class="container">
-  <div class="col-lg-8">
+  <div class="form-box">
     <%= form_tag('/feeds') do %>
-      <%= text_field_tag :link, nil, placeholder: "URLを入力して下さい", class: "form-control" %>
-      <%= select_tag :type, options_for_select([['dots', 0], ['connpass', 1]]) %>
+      <div class="form-group">
+        <p class="control-label">イベントURL</p>
+        <%= text_field_tag :link, nil, placeholder: "URLを入力して下さい", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <p class="control-label">イベント取得先</p>
+        <%= label_tag 'type[0]', "dots", class: "radio-inline" %>
+        <%= radio_button_tag :type, 0, false, class: "radio-inline" %>
+        <%= label_tag 'type[1]', "connpass", class: "radio-inline" %>
+        <%= radio_button_tag :type, 1, false, class: "radio-inline" %>
+      </div>
       <%= submit_tag  "登録する", class: "btn btn-primary" %>
     <% end %>
   </div>

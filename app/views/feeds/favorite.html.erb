@@ -1,3 +1,10 @@
 <h2>お気に入りイベント一覧</h2>
-<%= render :partial => "feed", :collection => @feeds, :as => :event %>
-
+<% if @feeds.present? %>
+  <%= render :partial => "feed", :collection => @feeds, :as => :event %>
+<% else %>
+  <div class="container">
+    <div class="no_event_box">
+      <p>現在「お気に入りイベント」はありません。<br><%= link_to "新着イベント", root_path %>からイベントをお気に入りに登録してみましょう！</p>
+    </div>
+  </div>
+<% end %>

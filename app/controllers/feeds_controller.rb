@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   end
 
   def recent
-    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("started_at DESC")
+    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("started_at ASC")
     @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
   end
 
@@ -29,7 +29,7 @@ class FeedsController < ApplicationController
     case params[:type].to_i
     when 0 then
       if DotsScraping.get_dots_event params[:link]
-        redirect_to root_path, flash: { alert: "新着イベントを登録しました" }
+        redirect_to root_path, flash: { notice: "新着イベントを登録しました" }
       else
         flash[:alert] = "登録に失敗しました"
         render 'new'
@@ -40,7 +40,7 @@ class FeedsController < ApplicationController
         connpass_events = HTTParty.get('http://connpass.com/api/v1/event/?event_id=' + link_ele[4])
         connpass_event = connpass_events.parsed_response["events"][0]
         if ConnpassApi.save_connpass_event connpass_event
-          redirect_to root_path, flash: { alert: "新着イベントを登録しました" }
+          redirect_to root_path, flash: { notice: "新着イベントを登録しました" }
         else
         flash[:alert] = "登録に失敗しました"
         render 'new'

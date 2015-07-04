@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702035001) do
+ActiveRecord::Schema.define(version: 20150703072859) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "feed_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "feeds", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -25,5 +34,10 @@ ActiveRecord::Schema.define(version: 20150702035001) do
   end
 
   add_index "feeds", ["type"], name: "index_feeds_on_type", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

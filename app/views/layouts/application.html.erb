@@ -22,6 +22,9 @@
   <nav id="my-menu">
     <ul>
       <li><%= link_to '新着イベント一覧', root_path %></li>
+      <li><%= link_to '近日のイベント一覧', recent_feeds_path %></li>
+      <li><%= link_to 'お気に入りイベント一覧', favorite_feeds_path %></li>
+      <li><%= link_to '過去のイベント一覧', old_feeds_path %></li>
       <li><%= link_to 'イベントを登録する', new_feed_path %></li>
     </ul>
   </nav>

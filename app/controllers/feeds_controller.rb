@@ -1,8 +1,26 @@
 class FeedsController < ApplicationController
 
   def index
-    @feeds =Feed.order("updated_at DESC").where('started_at > ?', Time.now.beginning_of_day)
+    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("updated_at DESC")
+    @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
   end
+
+  def recent
+    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("started_at DESC")
+    @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
+  end
+
+  def favorite
+    user = User.find(@user_id)
+    @feeds = user.feeds
+    @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
+  end
+
+  def old
+    @feeds = Feed.where('started_at < ?', Time.now.beginning_of_day).order("updated_at DESC")
+    @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
+  end
+
 
   def new
   end
@@ -36,4 +54,5 @@ class FeedsController < ApplicationController
       render 'new'
     end
   end
+
 end

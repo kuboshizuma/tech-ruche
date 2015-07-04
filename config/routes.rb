@@ -2,7 +2,14 @@ Rails.application.routes.draw do
 
   root 'feeds#index'
 
-  resources :feeds
+  resources :feeds do
+    collection do
+      get 'recent'
+      get 'favorite'
+      get 'old'
+    end
+  end
+  get 'favorites/:id' => 'favorites#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

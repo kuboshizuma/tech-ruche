@@ -67,3 +67,7 @@ end
 
 gem 'bullet', :group => :development
 
+group :production, :staging do
+    gem 'rails_12factor'
+end
+

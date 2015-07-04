@@ -1,0 +1,29 @@
+  <article>
+  <%= link_to "#{event.link}", class: "article_link", target: "_blank"  do %>
+    <div>
+        <%= image_tag(event.image) %>
+      <div class="article_top">
+        <p class="article_start"><%= event.start_day %></p>
+        <h1 class="article_title"><%= event.title %></p>
+      </div>
+      <table>
+        <tr><th>会場：</th><td><%= event.place %></td></tr>
+        <tr><th>住所：</th><td><%= event.address %></td></tr>
+      </table>
+     </div>
+        <% if @favorites.include?(event.id) %>
+          <%= link_to "/favorites/#{event.id}", method: :get, remote: :true, class: "fa-bu" do %>
+          <p class="fa_button">
+            お気に入り済み<i class="fa fa-star"></i>
+          </p>
+          <% end %>
+       <% else %>
+        <%= link_to "/favorites/#{event.id}", method: :get, remote: :true, class: "fa-bu-o" do %>
+          <p class="fa_button">
+            お気に入りに追加する<i class="fa fa-star-o"></i>
+          </p>
+        <% end %>
+      <% end %>
+  <% end %>
+</article>
+

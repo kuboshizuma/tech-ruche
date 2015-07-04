@@ -24,7 +24,7 @@ a:hover{
 h2{
   border-left: #ffd700 8px solid;
   color:#666;
-  font-size:23px;
+  font-size:22px;
   margin-left:20px;
   padding: 4px 15px;
 }
@@ -88,8 +88,8 @@ footer p{
  article
  ************************/
 .article_link{
-  display:block;
   color:#333;
+  display:inline;
 }
 
 .article_link:hover{
@@ -101,9 +101,15 @@ footer p{
 article{
   border-bottom:#bebebe thin solid;
   padding:20px;
+  padding-bottom:40px;
+  position:relative;
 }
 
-article>img{
+article:last-of-type{
+  margin-bottom:50px;
+}
+
+article img{
   display:block;
   float:left;
   max-width:20%;
@@ -139,6 +145,28 @@ article table th{
   text-align: right;
   width: 70px;
   vertical-align:top;
+}
+
+article .fa_button{
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background-color: #f2f2f2;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 30px;
+}
+
+.fa-bu .fa_button{
+  color:#ffac33;
+}
+
+.fa-bu-o .fa_button{
+  color:#666;
 }
 
 /************************

@@ -1,4 +1,5 @@
 class Feed < ActiveRecord::Base
+  has_many :favorites
 
   def image
     case type

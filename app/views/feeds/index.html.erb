@@ -1,2 +1,10 @@
 <h2>新着イベント一覧</h2>
-<%= render :partial => "feed", :collection => @feeds, :as => :event %>
+<% if @feeds.present? %>
+  <%= render :partial => "feed", :collection => @feeds, :as => :event %>
+<% else %>
+  <div class="container">
+    <div class="no_event_box">
+      <p>現在「新着イベント」はありません。<br><%= link_to "イベントを登録", new_feed_path %>しましょう！</p>
+    </div>
+  </div>
+<% end %>

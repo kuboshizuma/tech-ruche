@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   end
 
   def recent
-    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("started_at DESC")
+    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("started_at ASC")
     @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
   end
 

@@ -84,6 +84,10 @@ footer p{
   text-align:center;
 }
 
+#my-menu .mm-list > li > a{
+  padding: 20px 10px 20px 20px;
+}
+
 /************************
  article
  ************************/

@@ -8,4 +8,11 @@ class FavoritesController < ApplicationController
     end
     render json: { status: 'success' }
   end
+
+  def destroy
+    reset_session
+    user =User.find(@user_id)
+    user.destroy
+    redirect_to root_path, flash: { notice: "お気に入りをリセットしました" }
+  end
 end

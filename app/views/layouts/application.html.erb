@@ -26,6 +26,7 @@
       <li><%= link_to 'お気に入りイベント一覧', favorite_feeds_path %></li>
       <li><%= link_to '過去のイベント一覧', old_feeds_path %></li>
       <li><%= link_to 'イベントを登録する', new_feed_path %></li>
+      <li><%= link_to 'お気に入りをリセットする', favorites_path, method: :delete, data: { confirm: "一度消したお気に入り履歴は元には戻せません。本当にリセットしますか？" } %></li>
     </ul>
   </nav>
   <div id="wrap">

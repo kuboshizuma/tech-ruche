@@ -185,7 +185,12 @@ article .fa_button{
  form
  ************************/
 .form-box{
+  margin-bottom: 40px;
   margin-top:15px;
+}
+
+.form-box .radio-inline{
+  padding-left: 50px;
 }
 
 /************************
@@ -228,3 +233,30 @@ article .fa_button{
   border: 1px solid #f3f3f3;
   color: #ccc;
 }
+
+/************************
+ new
+ ************************/
+
+h3{
+  border-bottom: #ccc 2px solid;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  padding-left: 4px;
+}
+
+.how_to{
+  line-height: 170%;
+}
+
+.how_to a{
+  display:block;
+  margin-top:5px;
+}
+
+.how_to span{
+  color:#999;
+  word-break: break-all;
+}
+

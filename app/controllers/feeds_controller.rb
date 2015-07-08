@@ -1,23 +1,23 @@
 class FeedsController < ApplicationController
 
   def index
-    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("updated_at DESC")
+    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("updated_at DESC").page(params[:page]).per(10)
     @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
   end
 
   def recent
-    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("started_at ASC")
+    @feeds = Feed.where('started_at >= ?', Time.now.beginning_of_day).order("started_at ASC").page(params[:page]).per(10)
     @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
   end
 
   def favorite
     user = User.find(@user_id)
-    @feeds = user.feeds
+    @feeds = user.feeds.page(params[:page]).per(10)
     @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
   end
 
   def old
-    @feeds = Feed.where('started_at < ?', Time.now.beginning_of_day).order("updated_at DESC")
+    @feeds = Feed.where('started_at < ?', Time.now.beginning_of_day).order("updated_at DESC").page(params[:page]).per(10)
     @favorites = Favorite.where(user_id: @user_id).pluck(:feed_id)
   end
 

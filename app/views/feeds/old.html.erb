@@ -1,6 +1,7 @@
 <h2>過去のイベント一覧</h2>
 <% if @feeds.present? %>
   <%= render :partial => "feed", :collection => @feeds, :as => :event %>
+  <%= paginate(@feeds) %>
 <% else %>
   <div class="container">
     <div class="no_event_box">

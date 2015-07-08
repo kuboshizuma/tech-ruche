@@ -188,3 +188,43 @@ article .fa_button{
   margin-top:15px;
 }
 
+/************************
+ pagination
+ ************************/
+
+.pagination {
+  padding:3px;
+  margin:0 auto 20px;
+  text-align:center;
+  display:block;
+}
+
+.pagination a {
+  padding: 5px 10px 5px 10px;
+  margin-right: 2px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #999;
+}
+
+.pagination a:hover, .pagination a:active {
+  border:1px solid #ddd;
+  color: #fff;
+  background-color: #999;
+}
+
+.pagination span.current {
+  padding: 5px 10px 5px 10px;
+  margin-right: 2px;
+  border: 1px solid #ddd;
+  font-weight: bold;
+  background-color: #999;
+  color: #FFF;
+}
+
+.pagination span.disabled {
+  padding: 5px 10px 5px 10px;
+  margin-right: 2px;
+  border: 1px solid #f3f3f3;
+  color: #ccc;
+}

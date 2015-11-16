@@ -28,7 +28,7 @@ gem 'therubyracer'
 gem 'execjs'
 gem 'twitter-bootstrap-rails'
 
-gem 'rails_config'
+gem 'config'
 
 gem 'mechanize'
 

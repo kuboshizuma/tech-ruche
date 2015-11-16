@@ -70,6 +70,12 @@ end
 gem 'bullet', :group => :development
 
 group :production, :staging do
-    gem 'rails_12factor'
+  gem 'rails_12factor'
+  gem 'unicorn'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 

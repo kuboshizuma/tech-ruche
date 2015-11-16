@@ -50,6 +50,21 @@ GEM
       uniform_notifier (~> 1.9.0)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    capistrano (3.4.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.1.5)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.0.3)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+    capistrano3-unicorn (0.2.1)
+      capistrano (~> 3.1, >= 3.1.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -58,6 +73,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    colorize (0.7.7)
     columnize (0.9.0)
     commonjs (0.2.7)
     debug_inspector (0.0.2)
@@ -87,6 +103,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kgio (2.10.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.7.0)
@@ -117,6 +134,9 @@ GEM
     mysql2 (0.3.18)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.0.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
@@ -162,6 +182,7 @@ GEM
       activesupport (= 4.2.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.15.0)
     rake (10.4.2)
     rdoc (4.2.0)
     ref (1.0.5)
@@ -183,6 +204,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sshkit (1.7.1)
+      colorize (>= 0.7.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -204,6 +229,10 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    unicorn (5.0.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     uniform_notifier (1.9.0)
     web-console (2.1.3)
       activemodel (>= 4.0)
@@ -220,6 +249,11 @@ DEPENDENCIES
   better_errors
   bullet
   byebug
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rbenv
+  capistrano3-unicorn
   coffee-rails (~> 4.1.0)
   execjs
   httparty
@@ -242,7 +276,8 @@ DEPENDENCIES
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
+  unicorn
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.3
+   1.10.6

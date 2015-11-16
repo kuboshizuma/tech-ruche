@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: tech-ruche_production
-  username: <%= Settings.database[:user_name>
+  username: <%= Settings.database[:user_name] %>
   password: <%= Settings.database[:password] %>

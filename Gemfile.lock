@@ -264,7 +264,7 @@ DEPENDENCIES
   kaminari
   less-rails
   mechanize
-  mysql2 (= 0.3.20)
+  mysql2 (~> 0.3.20)
   pry-rails
   quiet_assets
   rails (= 4.2.1)
